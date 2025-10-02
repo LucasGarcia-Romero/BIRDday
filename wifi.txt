@@ -1,0 +1,22 @@
+https://orangepiweb.es/consejos-y-trucos.php
+
+sudo ifconfig wlan0 up
+sudo iwconfig wlan0 essid NOMBREDETUWIFI key s:CONTRASEÑA
+sudo dhclient wlan0
+Para que todo esto se ejecute al arranque, habrá que crear un archivo en /usr/local/bin. Llámalo wifi.sh y escribe esto:
+
+#! /bin/bash
+ifconfig wlan0 up
+iwconfig wlan0 essid NOMBREDETUWIFI key s:CONTRASEÑA
+dhclient wlan0
+
+Dale permisos de ejecución:
+
+chmod u+x wifi.sh
+Si tienes Armbian es mucho más sencillo. Usa:
+
+nmtui-connect SSID
+Para ver todas las redes disponibles:
+
+nmtui-connectorangepi@orangepi3-lts:~$ pwd
+/home/orangepi
